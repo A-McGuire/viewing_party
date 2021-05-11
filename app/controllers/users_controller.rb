@@ -4,12 +4,19 @@ class UsersController < ApplicationController
   end
 
   def create
+    user = user_params
+    user[:email] = user[:email].downcase
+    new_user = User.create(user)
+    flash[:message] = "Welcome #{new_user.email}!"
+    redirect_to dashboard_path
+  end
+
+  def show
     binding.pry
   end
 
   private
   def user_params
-    # params.require(:user).permit(:user_email, :user_password)
-    params.permit(:user_email, :user_password)
+    params.require(:user).permit(:email, :password)
   end
 end

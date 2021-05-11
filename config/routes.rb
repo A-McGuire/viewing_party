@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   get "/register", to: "users#new"
-  post "/register", to: "users#create"
+  post "/users", to: "users#create"
+  get "/dashboard", to: "users#show"
 end
