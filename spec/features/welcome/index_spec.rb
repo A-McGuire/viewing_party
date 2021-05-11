@@ -4,7 +4,7 @@ RSpec.describe "Welcome Page" do
     it "has wireframe requirements" do
         visit root_path
         expect(page).to have_content("Welcome to Viewing Party")
-        expect(page).to have_button("Sign In")
+        # expect(page).to have_button("Sign In")
         expect(page).to have_link("New to Viewing Party? Register Here")
     end
 
