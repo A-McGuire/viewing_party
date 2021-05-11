@@ -7,12 +7,16 @@ class UsersController < ApplicationController
     user = user_params
     user[:email] = user[:email].downcase
     new_user = User.create(user)
-    flash[:message] = "Welcome #{new_user.email}!"
-    redirect_to dashboard_path
+    
+    if new_user.save
+      session[:user_id] = new_user.id
+      flash[:info] = "Welcome, #{new_user.email}!"
+      redirect_to dashboard_path
+    end
   end
 
   def show
-    binding.pry
+    
   end
 
   private

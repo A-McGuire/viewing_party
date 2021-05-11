@@ -17,7 +17,7 @@ RSpec.describe 'New User Registration' do
         expect(current_path).to eq(dashboard_path)
         new_user = User.last
 
-        expect(page).to have_content("Welcome, 123@test.com!")
+        expect(page).to have_content("Welcome, 123@test.com")
         expect(new_user.email).to eq('123@test.com')
     end 
 end 
