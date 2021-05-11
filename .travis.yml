@@ -9,5 +9,6 @@ script:
 deploy:
   provider: heroku
   api_key:
-  app:
+    secure: nwpfJbxbH1rvxJFCYQ38S+aXqzQie13IT7rci8WJJnwsmsM7xsJDUeEVCwf+sk41RdcjJNEdDZSvVHYs5yxaxtkHe/+hfDT0Y6rxmFMrpIqNGnjQ8cuWElFtnNlmqBsrUV5eMXhZLSdS17YPMLo9NMZfSI8NLV9s8X5chwUBs5mX6G4xr2BXeKM4SR89Mc2MBsNDzDBEly/lT+obTtHvxCDGlNKTCxTkVpmRWWLp8K+6w6a0pY8dleDUYluG+8YYg5/zRPlYodhnqzJQLVquKp/1TG6zfeVz+ZNEhX4vgsajhXRY/dwsHUQiHHgos3XlyfTGFeHdBhqNGn49z+sqtSO+v82fo4mzg+Ofj/2+yS9fYqBqgR3sEgKWvHnRYt2Q1Hn+HnDGtVvt6LIj6U4neARhHxtKQG5Ze3+7DsVaY0TdBG3ZXZpRojKD/LE2nHn9EfZhwTo1716ifyJgZZ3HpHGYbMR3pb1x/myXDZ7JxCIBhAqbkDfxbp0wEw7H9z5Bbj2iop7o8Alt+yeaoaMQUb5uyd050fQPImIkTagLsWMIZ6DPCroGvv3iAQfQiBO8rnrSP4i+ULo9meKCSNHB7auGm3Ot0rZ7g4rFszvKb3N16pvZAWxOC6buSNgtrSJNOFm61QuX8AEileMxkc8FO6+/DnKCatzKkkXaahlQrKk=
+  app: 
   run: rails db:migrate
