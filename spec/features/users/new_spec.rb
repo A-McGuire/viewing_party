@@ -1,23 +1,78 @@
 require 'rails_helper'
 
 RSpec.describe 'New User Registration' do 
-
+  describe 'happy paths' do
     it "can create a new user and save that user to the database" do 
-        visit root_path
+      visit root_path
+  
+      click_link "New to Viewing Party? Register Here"
+  
+      expect(current_path).to eq("/register")
+  
+      fill_in "user[email]", with: "123@test.com"
+      fill_in "user[password]", with: "password123"
+      fill_in "user[password_confirmation]", with: "password123"
+  
+      click_button "Register"
+  
+      expect(current_path).to eq(dashboard_path)
+      new_user = User.last
+  
+      expect(page).to have_content("Welcome, 123@test.com")
+      expect(new_user.email).to eq('123@test.com')
+    end
+  end
 
-        click_link "New to Viewing Party? Register Here"
+  describe 'sad path' do
+    it "requires a password confirmation to match password" do
+      visit root_path
+    
+      click_link "New to Viewing Party? Register Here"
+    
+      expect(current_path).to eq("/register")
+    
+      fill_in "user[email]", with: "123@test.com"
+      fill_in "user[password]", with: "password123"
+      fill_in "user[password_confirmation]", with: "123"
+    
+      click_button "Register"
+      
+      expect(current_path).to eq('/register')
+      expect(page).to have_content("Invalid credentials")
+    end
 
-        expect(current_path).to eq("/register")
+    it "requires a password confirmation to match password, empty string" do
+      visit root_path
+    
+      click_link "New to Viewing Party? Register Here"
+    
+      expect(current_path).to eq("/register")
+    
+      fill_in "user[email]", with: "123@test.com"
+      fill_in "user[password]", with: "password123"
+      fill_in "user[password_confirmation]", with: ""
+    
+      click_button "Register"
+      
+      expect(current_path).to eq('/register')
+      expect(page).to have_content("Invalid credentials")
+    end
 
-        fill_in "user[email]", with: "123@test.com"
-        fill_in "user[password]", with: "password123"
-
-        click_button "Register"
-
-        expect(current_path).to eq(dashboard_path)
-        new_user = User.last
-
-        expect(page).to have_content("Welcome, 123@test.com")
-        expect(new_user.email).to eq('123@test.com')
-    end 
+    it "requires a password" do
+      visit root_path
+    
+      click_link "New to Viewing Party? Register Here"
+    
+      expect(current_path).to eq("/register")
+    
+      fill_in "user[email]", with: "123@test.com"
+      fill_in "user[password]", with: ""
+      fill_in "user[password_confirmation]", with: ""
+    
+      click_button "Register"
+      
+      expect(current_path).to eq('/register')
+      expect(page).to have_content("Invalid credentials")
+    end
+  end
 end 

@@ -1,5 +1,4 @@
-<h1>Welcome to Viewing Party</h1>
-<%# <%= link_to "Sign In", "/login" %> %>
+<h1>Sign In</h1>
 
 <%= form_with url: "/login", method: :post, local: true do |f| %>
   <%= f.label :email, "Email: " %>
@@ -10,5 +9,3 @@
 
   <%= f.submit "Sign In" %>
 <% end %>
-
-<%= link_to "New to Viewing Party? Register Here", "/register" %><br>

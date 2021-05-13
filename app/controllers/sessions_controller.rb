@@ -1,10 +1,11 @@
 class SessionsController < ApplicationController
-    def new
-        binding.pry
-    end
+  # def new
+  # end
 
-    def create
-        binding.pry
-    end
-
+  def create
+    user = User.find_by(email: params[:email])
+    session[:user_id] = user.id
+    flash[:info] = "Welcome, #{user.email}!"
+    redirect_to dashboard_path
+  end
 end

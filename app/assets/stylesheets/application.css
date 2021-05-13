@@ -16,16 +16,11 @@
 
 body {
   display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-main {
-  flex: 1;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 footer {
   display: flex;
-  align-self: baseline;
-  flex-direction: row;
 }
