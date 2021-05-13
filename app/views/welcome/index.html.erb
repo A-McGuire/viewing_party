@@ -1,14 +1,31 @@
 <h1>Welcome to Viewing Party</h1>
-<%# <%= link_to "Sign In", "/login" %> %>
+<%# <%= link_to "Sign In", "/login" %>
 
-<%= form_with url: "/login", method: :post, local: true do |f| %>
-  <%= f.label :email, "Email: " %>
-  <%= f.text_field :email %>
+<section class="login-form">
+  <%= form_with url: "/login", method: :post, local: true do |f| %>
+    <%= f.label :email, "Email: " %>
+    <%= f.text_field :email %>
 
-  <%= f.label :password, "Password: " %>
-  <%= f.password_field :password %>
+    <%= f.label :password, "Password: " %>
+    <%= f.password_field :password %>
 
-  <%= f.submit "Sign In" %>
-<% end %>
+    <%= f.submit "Sign In" %>
+  <% end %>
+</section><br>
+<button class="register-button">New to Viewing Party? Register Here</button>
 
-<%= link_to "New to Viewing Party? Register Here", "/register" %><br>
+<section class="register-form">
+  <%= form_with model: @user, local: true do |f| %>
+    <%= f.label :email, "Email: " %>
+    <%= f.text_field :email %>
+
+    <%= f.label :password, "Password: " %>
+    <%= f.password_field :password %>
+
+    <%= f.label :password, "Password Confirmation: " %>
+    <%= f.password_field :password_confirmation %>
+
+    <%= f.submit "Register" %>
+  <% end %>
+</section><br>
+<button class="login-button">Already have an account? Sign In</button>

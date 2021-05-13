@@ -24,3 +24,29 @@ body {
 footer {
   display: flex;
 }
+
+.register-form {
+  padding: 1rem;
+  width: stretch;
+  height: auto;
+  display: none;
+}
+
+.login-form {
+  padding: 1rem;
+  width: stretch;
+  height: auto;
+  display: block;
+}
+
+.register-button {
+  padding: 1rem;
+  height: auto;
+  display: block;
+}
+
+.login-button {
+  padding: 1rem;
+  height: auto;
+  display: none;
+}
