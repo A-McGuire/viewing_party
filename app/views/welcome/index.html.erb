@@ -4,14 +4,38 @@
   Viewing party is an app that allows you to search movies and create viewing parties with your friends.
 </section><br>
 
-<%= form_with url: "/login", method: :post, local: true do |f| %>
-  <%= f.label :email, "Email: " %>
-  <%= f.text_field :email %>
 
-  <%= f.label :password, "Password: " %>
-  <%= f.password_field :password %>
+<section class="login-form">
+  <%= form_with url: "/login", method: :post, local: true do |f| %>
+    <%= f.label :email, "Email: " %>
+    <%= f.text_field :email %>
 
-  <%= f.submit "Sign In" %>
-<% end %><br>
+    <%= f.label :password, "Password: " %>
+    <%= f.password_field :password %>
 
-<%= link_to "New to Viewing Party? Register Here", "/register" %><br><br>
+    <%= f.submit "Sign In" %>
+  <% end %>
+</section><br>
+<button class="register-button">New to Viewing Party? Register Here</button>
+
+<section class="register-form">
+  <%= form_with url: "/users", method: :post, local: true do |f| %>
+    <%= f.label :email, "Email: " %>
+    <%= f.text_field :email %>
+
+    <%= f.label :password, "Password: " %>
+    <%= f.password_field :password %>
+
+    <%= f.label :password, "Password Confirmation: " %>
+    <%= f.password_field :password_confirmation %>
+
+    <%= f.submit "Register" %>
+  <% end %>
+</section><br>
+<button class="login-button">Already have an account? Sign In</button>
+
+ 
+
+
+
+

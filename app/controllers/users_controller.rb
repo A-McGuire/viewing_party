@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       flash[:info] = "Welcome, #{new_user.email}!"
       redirect_to dashboard_path
     else
-      redirect_to register_path
+      redirect_to root_path
       flash[:alert] = "Invalid credentials" #TODO make this case sensitive, email already exists, or passwords dont match
     end
   end
@@ -23,6 +23,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.permit(:email, :password, :password_confirmation)
   end
 end
