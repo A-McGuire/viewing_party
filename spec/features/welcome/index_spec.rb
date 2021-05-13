@@ -14,12 +14,6 @@ RSpec.describe "Welcome Page" do
     expect(current_path).to eq("/register")
   end
 
-  skip "redirects to user dashboard when sign in button is clicked" do
-    visit root_path
-    click_link "Sign In"
-    expect(current_path).to eq("/dashboard")
-  end
-
   describe 'log in' do
     describe 'happy path' do
       it "can log in" do 
