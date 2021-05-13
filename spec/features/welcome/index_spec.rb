@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe "Welcome Page" do
   it "has wireframe requirements" do
     visit root_path
