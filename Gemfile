@@ -19,6 +19,7 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   gem 'pry'
   gem 'travis'
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -36,4 +37,4 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-# travis ci test 
+gem 'bcrypt'
