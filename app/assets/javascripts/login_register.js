@@ -22,5 +22,3 @@ document.addEventListener('DOMContentLoaded', () => {
     loginForm.style.display = 'none'
   })
 })
-
-

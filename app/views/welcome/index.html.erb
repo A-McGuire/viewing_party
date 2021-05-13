@@ -15,7 +15,7 @@
 <button class="register-button">New to Viewing Party? Register Here</button>
 
 <section class="register-form">
-  <%= form_with model: @user, local: true do |f| %>
+  <%= form_with url: "/users", method: :post, local: true do |f| %>
     <%= f.label :email, "Email: " %>
     <%= f.text_field :email %>
 
