@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       flash[:info] = "Welcome, #{new_user.email}!"
       redirect_to dashboard_path
     else
-      redirect_to register_path
+      redirect_to root_path
       flash[:alert] = "Invalid credentials" #TODO make this case sensitive, email already exists, or passwords dont match
     end
   end
