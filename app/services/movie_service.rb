@@ -4,6 +4,13 @@ class MovieService
       response = conn.get("3/movie/#{id}")
       parse_data(response)
     end
+    
+    def top_rated_movies(page_number)
+      response = conn.get("3/movie/top_rated") do |req|
+        req.params['page'] = page_number
+      end
+      parse_data(response)
+    end
 
     private
 
