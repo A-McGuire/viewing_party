@@ -1,7 +1,7 @@
 class MovieService
   class << self
-    def movie
-      response = conn.get("3/movie/555")
+    def movie(id)
+      response = conn.get("3/movie/#{id}")
       parse_data(response)
     end
 
@@ -9,13 +9,12 @@ class MovieService
 
     def conn
       conn = Faraday.new(url: "https://api.themoviedb.org/") do |faraday|
-        faraday.headers["Authorization"] = "Bearer #{ENV['movie_db_token']}"
-        # faraday.params["api_key"] = ENV['movie_db_key']
+        faraday.headers["Authorization"] = "Bearer #{ENV['movie_db_token']}" #token option via headers
+        # faraday.params["api_key"] = ENV['movie_db_key'] #key option via params
       end
     end
 
     def parse_data(response)
-      binding.pry
       JSON.parse(response.body, symbolize_names: true)
     end
   end
