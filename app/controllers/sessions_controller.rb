@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-
   def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
@@ -8,7 +7,7 @@ class SessionsController < ApplicationController
       redirect_to dashboard_path
     else
       redirect_to root_path
-      flash[:alert] = "Invalid Credentials"
+      flash[:alert] = 'Invalid Credentials'
     end
   end
 end
