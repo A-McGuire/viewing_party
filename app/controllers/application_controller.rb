@@ -3,10 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :require_login
 
   def require_login
-    if current_user.present?
-    else
-      redirect_to root_path, notice: "Please login"
-    end
+    redirect_to root_path, notice: 'Please login' if current_user.nil?
   end
 
   def current_user
