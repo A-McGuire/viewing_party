@@ -4,9 +4,9 @@ class MovieService
       response = conn.get("3/movie/#{id}")
       parse_data(response)
     end
-    
+
     def top_rated_movies(page_number)
-      response = conn.get("3/movie/top_rated") do |req|
+      response = conn.get('3/movie/top_rated') do |req|
         req.params['page'] = page_number
       end
       parse_data(response)
@@ -15,8 +15,8 @@ class MovieService
     private
 
     def conn
-      conn = Faraday.new(url: "https://api.themoviedb.org/") do |faraday|
-        faraday.headers["Authorization"] = "Bearer #{ENV['movie_db_token']}" #token option via headers
+      Faraday.new(url: 'https://api.themoviedb.org/') do |faraday|
+        faraday.headers['Authorization'] = "Bearer #{ENV['movie_db_token']}" # token option via headers
         # faraday.params["api_key"] = ENV['movie_db_key'] #key option via params
       end
     end
