@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   root "welcome#index"
   
-  post "/users", to: "users#create"
   get "/dashboard", to: "users#index"
+
   post "/login", to: "sessions#create"
+
+  resources :users, only: [:create]
+  
+  resources :movies, only: [:index]
 end
