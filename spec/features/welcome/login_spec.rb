@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Login form (welcome page)" do
-  before :each do 
-    @user = User.create!(email: "123@test.com", password: "password123")
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
-  end
   
   describe 'happy path' do
     it "can log in" do 
