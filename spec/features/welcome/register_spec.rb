@@ -5,7 +5,6 @@ RSpec.describe "Register Form (welcome page)" do
     it "can create new user after new user link is clicked" do
       visit root_path
       
-      
       click_button "New to Viewing Party? Register Here"
       expect(current_path).to eq("/")
       within(".register-form") do

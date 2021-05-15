@@ -18,7 +18,6 @@ RSpec.describe "Login form (welcome page)" do
       expect(current_path).to eq(dashboard_path)
   
       expect(page).to have_content("Welcome, 123@test.com")
-  
     end
   end
 

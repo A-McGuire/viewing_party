@@ -16,4 +16,11 @@ RSpec.describe "Movies page" do
       expect(page).to have_content('Vote Average: 8.4')
     end
   end
+
+  it "redirects unauthenticated users to root" do
+    visit '/movies'
+    
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content("Please login")
+  end
 end
