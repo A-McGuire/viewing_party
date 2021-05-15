@@ -6,12 +6,12 @@ RSpec.describe "Movies page" do
 
     visit movies_path
     
-    within("#movie_19404") do
+    within("#movie-19404") do
       expect(page).to have_content("Dilwale Dulhania Le Jayenge")
       expect(page).to have_content('Vote Average: 8.7')
     end
 
-    within("#movie_598") do
+    within("#movie-598") do
       expect(page).to have_content("City of God")
       expect(page).to have_content('Vote Average: 8.4')
     end
