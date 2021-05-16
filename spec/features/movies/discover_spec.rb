@@ -6,7 +6,7 @@ RSpec.describe "Discover page" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user) unless test.metadata[:logged_out]
   end
 
-    it "redirects unauthenticated users to root", :logged_out do
+  it "redirects unauthenticated users to root", :logged_out do
     visit '/discover'
     
     expect(current_path).to eq(root_path)
