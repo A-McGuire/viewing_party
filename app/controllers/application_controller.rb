@@ -3,13 +3,11 @@ class ApplicationController < ActionController::Base
   before_action :require_login, except: [:current_user]
 
   def require_login
-    if current_user.nil?
-      redirect_to root_path, notice: 'Please login'
-    end
+    redirect_to root_path, notice: 'Please login' if current_user.nil?
   end
 
   def current_user
-    current_user ||= User.find(session[:user_id]) if session[:user_id]
+    User.find(session[:user_id]) if session[:user_id]
   end
 
   helper_method :current_user

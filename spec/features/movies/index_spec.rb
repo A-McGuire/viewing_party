@@ -58,4 +58,11 @@ RSpec.describe "Movies page" do
     expect(page).to have_content("Fight Club")
     expect(page).to have_content("Florence Fight Club")
   end
+
+  it "has a link back to dashboard" do 
+    visit movies_path
+    expect(page).to have_link("Dashboard")
+    click_link("Dashboard")
+    expect(current_path).to eq(dashboard_path)
+  end
 end

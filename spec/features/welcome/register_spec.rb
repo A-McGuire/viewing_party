@@ -7,7 +7,7 @@ RSpec.describe "Register Form (welcome page)" do
       
       click_button "New to Viewing Party? Register Here"
 
-      expect(current_path).to eq("/")
+      expect(current_path).to eq(root_path)
 
       within(".register-form") do
         fill_in :email, with: "123@test.com"
@@ -31,7 +31,7 @@ RSpec.describe "Register Form (welcome page)" do
     
       click_button "New to Viewing Party? Register Here"
     
-      expect(current_path).to eq("/")
+      expect(current_path).to eq(root_path)
       within(".register-form") do
         fill_in :email, with: "123@test.com"
         fill_in :password, with: "password123"
@@ -39,7 +39,7 @@ RSpec.describe "Register Form (welcome page)" do
         click_button "Register"
       end
       
-      expect(current_path).to eq("/")
+      expect(current_path).to eq(root_path)
       expect(page).to have_content("Invalid credentials")
     end
 
@@ -48,7 +48,7 @@ RSpec.describe "Register Form (welcome page)" do
     
       click_button "New to Viewing Party? Register Here"
     
-      expect(current_path).to eq("/")
+      expect(current_path).to eq(root_path)
       within(".register-form") do
         fill_in :email, with: "123@test.com"
         fill_in :password, with: "password"
@@ -57,7 +57,7 @@ RSpec.describe "Register Form (welcome page)" do
         click_button "Register"
       end
       
-      expect(current_path).to eq("/")
+      expect(current_path).to eq(root_path)
       expect(page).to have_content("Invalid credentials")
     end
 
@@ -66,7 +66,7 @@ RSpec.describe "Register Form (welcome page)" do
     
       click_button "New to Viewing Party? Register Here"
     
-      expect(current_path).to eq("/")
+      expect(current_path).to eq(root_path)
     
       within(".register-form") do
         fill_in :email, with: "123@test.com"
@@ -75,7 +75,7 @@ RSpec.describe "Register Form (welcome page)" do
         click_button "Register"
       end
       
-      expect(current_path).to eq("/")
+      expect(current_path).to eq(root_path)
       expect(page).to have_content("Invalid credentials")
     end
   end
