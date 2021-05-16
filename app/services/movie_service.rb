@@ -12,6 +12,13 @@ class MovieService
       parse_data(response)
     end
 
+    def title_search(movie_title)
+      response = conn.get('3/search/movie') do |req|
+        req.params['query'] = movie_title
+      end
+      parse_data(response)
+    end
+
     private
 
     def conn
