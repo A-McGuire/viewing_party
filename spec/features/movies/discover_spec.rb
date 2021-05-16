@@ -12,4 +12,23 @@ RSpec.describe "Discover page" do
     expect(current_path).to eq(root_path)
     expect(page).to have_content("Please login")
   end
+
+  it 'has a link to top 40 movies (/movies)' do
+    visit '/discover'
+
+    expect(page).to have_button('Find Top Rated Movies')
+    click_button 'Find Top Rated Movies'
+    expect(current_path).to eq('/movies')
+  end
+
+  it 'has a form to search movies by title' do
+    visit '/discover'
+
+    fill_in :movie_title, with: "Fight Club"
+    expect(page).to have_button('Search')
+    click_button 'Search'
+    expect(current_path).to eq('/movies')
+    expect(page).to have_content("Fight Club")
+    expect(page).to have_content("Florence Fight Club")
+  end
 end
