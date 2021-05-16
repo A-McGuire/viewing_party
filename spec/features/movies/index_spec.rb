@@ -1,6 +1,6 @@
 require 'rails_helper'
 RSpec.describe "Movies page" do
-  it "has a list of 40 movies" do
+  it "has a list of 40 movies", :vcr do
     user = User.create!(email: "123@email.com", password: "1111")
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
