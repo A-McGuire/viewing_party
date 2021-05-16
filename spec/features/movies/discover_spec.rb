@@ -25,8 +25,8 @@ RSpec.describe "Discover page" do
     visit '/discover'
 
     fill_in :movie_title, with: "Fight Club"
-    expect(page).to have_button('Search')
-    click_button 'Search'
+    expect(page).to have_button('Find Movies')
+    click_button 'Find Movies'
     expect(current_path).to eq('/movies')
     expect(page).to have_content("Fight Club")
     expect(page).to have_content("Florence Fight Club")

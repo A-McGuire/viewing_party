@@ -4,6 +4,5 @@ class MoviesController < ApplicationController
   end
 
   def discover
-    
   end
 end
