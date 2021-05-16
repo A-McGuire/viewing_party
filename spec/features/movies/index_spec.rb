@@ -4,7 +4,11 @@ RSpec.describe "Movies page" do
     user = User.create!(email: "123@email.com", password: "1111")
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit movies_path
+    visit discover_path
+
+    click_button "Find Top Rated Movies"
+
+    expect(current_path).to eq(movies_path)
     
     within("#movie-19404") do
       expect(page).to have_content("Dilwale Dulhania Le Jayenge")

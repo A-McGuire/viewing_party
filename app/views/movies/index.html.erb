@@ -1,19 +1,23 @@
-<h1>Top Rated Movies</h1>
+<% if params[:display] == "top_40" %>
+  <section id='top-movies'>
+    <h1>Top Rated Movies</h1>
 
-<section id='movies'>
-  <% @movies.each do |movie| %>
-    <section id="movie-<%= movie[:id] %>">
-      <%= movie[:title] %><br>
-      Vote Average: <%= movie[:vote_average] %><br><br>
-    </section>
-  <% end %>
-</section>
+    <% @movies.each do |movie| %>
+      <section id="movie-<%= movie[:id] %>">
+        <%= movie[:title] %><br>
+        Vote Average: <%= movie[:vote_average] %><br><br>
+      </section>
+    <% end %>
+  </section>
 
-<section id='title-search'>
-  <% @title_search.each do |movie| %>
-    <section id="title_search-<%= movie[:id] %>">
-      <%= movie[:title] %><br>
-      Vote Average: <%= movie[:vote_average] %><br><br>
-    </section>
-  <% end %>
-</section>
+<% elsif params[:movie_title].present? %>
+  <section id='title-search'>
+    <% @title_search.each do |movie| %>
+      <section id="title_search-<%= movie[:id] %>">
+        <%= movie[:title] %><br>
+        Vote Average: <%= movie[:vote_average] %><br><br>
+      </section>
+    <% end %>
+  </section>
+<% end %>
+
