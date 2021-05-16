@@ -3,8 +3,7 @@ class MoviesController < ApplicationController
     @movies = Movies.top40
     return unless params[:movie_title].present?
 
-    title_search = MovieService.title_search(params[:movie_title].gsub(' ', '+'))
-    @title_search = title_search[:results]
+    @title_search = Movies.title_search_results(params[:movie_title])
   end
 
   def discover; end
