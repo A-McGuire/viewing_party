@@ -1,0 +1,12 @@
+<section id='movies'>
+  <h1>Top Rated Movies</h1>
+
+  <% @movies.each do |movie| %>
+    <section id="movie-<%= movie[:id] %>">
+      <%= movie[:title] %><br>
+      Vote Average: <%= movie[:vote_average] %><br><br>
+    </section>
+  <% end %>
+</section>
+
+

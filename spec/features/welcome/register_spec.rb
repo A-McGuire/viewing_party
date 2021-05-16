@@ -5,15 +5,17 @@ RSpec.describe "Register Form (welcome page)" do
     it "can create new user after new user link is clicked" do
       visit root_path
       
-      
       click_button "New to Viewing Party? Register Here"
+
       expect(current_path).to eq("/")
+
       within(".register-form") do
         fill_in :email, with: "123@test.com"
         fill_in :password, with: "password123"
         fill_in :password_confirmation, with: "password123"
         click_button "Register"
       end
+      
       expect(current_path).to eq(dashboard_path)
       
       new_user = User.last

@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-  def new
-    @user = User.new
-  end
+  skip_before_action :require_login, only: [:create]
 
   def create
     user = user_params
