@@ -1,14 +1,15 @@
+<%= render partial: "partials/to_dashboard" %>
 <%= render partial: "partials/movie_filter" %>
 
 <% if @movies.present? %>
-  <section id='movies'>
-    <h1>Top Rated Movies</h1>
+<section id='movies'>
+  <h1>Top Rated Movies</h1>
 
-    <% @movies.each do |movie| %>
-      <section id="movie-<%= movie[:id] %>">
-        <%= movie[:title] %><br>
-        Vote Average: <%= movie[:vote_average] %><br><br>
-      </section>
-    <% end %>
+  <% @movies.each do |movie| %>
+  <section id="movie-<%= movie[:id] %>">
+    <%= movie[:title] %><br>
+    Vote Average: <%= movie[:vote_average] %><br><br>
   </section>
+  <% end %>
+</section>
 <% end %>

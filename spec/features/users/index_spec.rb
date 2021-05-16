@@ -16,18 +16,18 @@ RSpec.describe 'User Dashboard' do \
   end
   
   it "redirects unauthenticated users to root", :logged_out do
-    visit '/dashboard'
+    visit dashboard_path
     
     expect(current_path).to eq(root_path)
     expect(page).to have_content("Please login")
   end
   
   it 'has a button to discover movies' do
-    visit '/dashboard'
+    visit dashboard_path
 
     expect(page).to have_button("Discover Movies")
     click_button "Discover Movies"
-    expect(current_path).to eq("/discover")
+    expect(current_path).to eq(discover_path)
   end
 
   describe 'friends section' do
