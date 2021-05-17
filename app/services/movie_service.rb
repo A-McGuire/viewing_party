@@ -23,8 +23,8 @@ class MovieService
 
     def conn
       Faraday.new(url: 'https://api.themoviedb.org/') do |faraday|
-        faraday.headers['Authorization'] = "Bearer #{ENV['movie_db_token']}" 
-        faraday.headers['Accept'] = "*/*"
+        faraday.headers['Authorization'] = "Bearer #{ENV['movie_db_token']}"
+        faraday.headers['Accept'] = '*/*'
       end
     end
 

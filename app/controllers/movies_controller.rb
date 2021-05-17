@@ -9,8 +9,5 @@ class MoviesController < ApplicationController
 
   def discover; end
 
-  def show
-    
-  end
-
+  def show; end
 end
