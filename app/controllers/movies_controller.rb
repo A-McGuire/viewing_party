@@ -8,4 +8,6 @@ class MoviesController < ApplicationController
   end
 
   def discover; end
+
+  def show; end
 end

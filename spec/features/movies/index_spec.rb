@@ -14,13 +14,15 @@ RSpec.describe "Movies page" do
     expect(current_path).to eq(movies_path)
     
     within("#movie-19404") do
-      expect(page).to have_content("Dilwale Dulhania Le Jayenge")
+      expect(page).to have_link("Dilwale Dulhania Le Jayenge")
       expect(page).to have_content('Vote Average: 8.7')
     end
 
     within("#movie-598") do
-      expect(page).to have_content("City of God")
+      expect(page).to have_link("City of God")
       expect(page).to have_content('Vote Average: 8.4')
+      click_link("City of God")
+      expect(current_path).to eq(movie_path(598))
     end
   end
 
@@ -38,12 +40,12 @@ RSpec.describe "Movies page" do
     expect(current_path).to eq(movies_path)
     
     within("#movie-19404") do
-      expect(page).to have_content("Dilwale Dulhania Le Jayenge")
+      expect(page).to have_link("Dilwale Dulhania Le Jayenge")
       expect(page).to have_content('Vote Average: 8.7')
     end
 
     within("#movie-598") do
-      expect(page).to have_content("City of God")
+      expect(page).to have_link("City of God")
       expect(page).to have_content('Vote Average: 8.4')
     end
   end
@@ -55,8 +57,8 @@ RSpec.describe "Movies page" do
     expect(page).to have_button('Find Movies')
     click_button 'Find Movies'
     expect(current_path).to eq(movies_path)
-    expect(page).to have_content("Fight Club")
-    expect(page).to have_content("Florence Fight Club")
+    expect(page).to have_link("Fight Club")
+    expect(page).to have_link("Florence Fight Club")
   end
 
   it "has a link back to dashboard" do 
@@ -65,4 +67,6 @@ RSpec.describe "Movies page" do
     click_link("Dashboard")
     expect(current_path).to eq(dashboard_path)
   end
+
+
 end
