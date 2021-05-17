@@ -11,9 +11,23 @@ RSpec.describe "Movie show page" do
     click_link("City of God")
     expect(current_path).to eq(movie_path(598))
 
-    # expect(page).to have_content(movie.title)
-    # expect(page).to have_content(movie.)
-    # expect(page).to have_content(movie.)
+
+    #from get details query using movie id (/movie/movie_id)
+      # expect(page).to have_content(movie.title)
+      # expect(page).to have_content(movie.vote_average)
+      # expect(page).to have_content(movie.runtime)
+      # expect(page).to have_content(movie.genres[:name])
+      # expect(page).to have_content(movie.overview)
+      # expect(page).to have_content(movie.vote_count)
+
+    #from get credits query (/movie/movie_id/credits)
+      # expect(page).to have_content(movie.cast.name) -- limit to 10
+
+    #from get reviews query (/movie/movie_id/reviews)
+      # expect(page).to have_content(movie.results.author)
+      # expect(page).to have_content(movie.reviews.content)
+
+    
   end
 
   
