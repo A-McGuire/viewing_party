@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   #custom
   get "/dashboard", to: "users#index"
 
-  get "/discover", to: "movies#discover"
-
   post "/login", to: "sessions#create"
 
   #restful
   resources :users, only: [:create]
   
   resources :movies, only: [:index, :show]
+
+  resources :discover, only: [:index]
 end

@@ -6,7 +6,7 @@ RSpec.describe "Movie show page" do
   end
 
   it "shows a movie's details", :vcr do 
-    visit discover_path
+    visit discover_index_path
     click_button("Find Top Rated Movies")
     click_link("City of God")
     expect(current_path).to eq(movie_path(598))

@@ -7,7 +7,7 @@ RSpec.describe "Movies page" do
 
   it "has a list of 40 movies", :vcr do
 
-    visit discover_path
+    visit discover_index_path
 
     click_button "Find Top Rated Movies"
 
