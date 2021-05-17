@@ -7,7 +7,7 @@
 
   <% @movies.each do |movie| %>
   <section id="movie-<%= movie[:id] %>">
-    <%= movie[:title] %><br>
+    <%= link_to "#{movie[:title]}", "/movies/#{movie[:id]}", method: :get %><br>
     Vote Average: <%= movie[:vote_average] %><br><br>
   </section>
   <% end %>
