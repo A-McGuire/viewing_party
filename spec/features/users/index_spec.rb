@@ -27,7 +27,7 @@ RSpec.describe 'User Dashboard' do \
 
     expect(page).to have_button("Discover Movies")
     click_button "Discover Movies"
-    expect(current_path).to eq(discover_path)
+    expect(current_path).to eq(discover_index_path)
   end
 
   describe 'friends section' do
