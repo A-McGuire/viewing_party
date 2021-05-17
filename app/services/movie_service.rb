@@ -19,7 +19,7 @@ class MovieService
       parse_data(response)
     end
 
-    # private
+    private
 
     def conn
       Faraday.new(url: 'https://api.themoviedb.org/') do |faraday|
