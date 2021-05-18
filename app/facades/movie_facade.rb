@@ -25,6 +25,7 @@ class MovieFacade
 
     def cast_search_results(movie_id)
       cast_search = MovieService.movie_cast(movie_id)
+      json_to_cast_object(cast_search)
     end
 
     def json_to_index_object(data)
@@ -38,9 +39,11 @@ class MovieFacade
     end
 
     def json_to_reviews_object(data)
-      data.map do |review|
-        MovieReviews.new(data)
-      end
+      MovieReviews.new(data)
+    end
+
+    def json_to_cast_object(data)
+      MovieCast.new(data)
     end
   end
 end
