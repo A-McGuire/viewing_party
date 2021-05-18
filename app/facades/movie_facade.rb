@@ -13,8 +13,12 @@ class MovieFacade
       json_to_object(movies)
     end
 
-    def id_search_results(params)
-      id_search = MovieService.movie(params)
+    def id_search_results(movie_id)
+      id_search = MovieService.movie(movie_id)
+    end
+
+    def reviews_search_results(movie_id)
+      reviews_search = MovieService.movie_reviews(movie_id)
     end
 
     def json_to_object(data)
