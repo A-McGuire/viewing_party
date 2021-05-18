@@ -35,7 +35,7 @@ RSpec.describe "Discover page" do
   it "has a link back to dashboard" do 
     visit discover_path
     expect(page).to have_link("Dashboard")
-    click_link("Dashboard")
+    click_link('Dashboard')
     expect(current_path).to eq(dashboard_path)
   end
 end
