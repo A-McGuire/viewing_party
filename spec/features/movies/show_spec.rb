@@ -15,7 +15,7 @@ RSpec.describe "Movie show page" do
     within("#movie-attributes") do
       expect(page).to have_content("Fight Club")
       expect(page).to have_content(8.4)
-      expect(page).to have_content(139)
+      expect(page).to have_content("2 Hours 19 Minutes")
       expect(page).to have_content("Drama")
       expect(page).to have_content(overview)
     end
