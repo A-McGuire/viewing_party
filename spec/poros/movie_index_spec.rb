@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Movie' do
+RSpec.describe 'Movie Index poros' do
   it 'has readable attributes' do
     movie_json = File.read('spec/fixtures/movie.json')
     data_hash = JSON.parse(movie_json, symbolize_names: true)
