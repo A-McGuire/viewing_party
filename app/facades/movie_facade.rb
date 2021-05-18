@@ -27,7 +27,7 @@ class MovieFacade
 
     def json_to_object(data)
       data.map do |movie|
-        Movie.new(movie)
+        MovieIndex.new(movie)
       end
     end
   end
