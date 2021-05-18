@@ -2,12 +2,12 @@
 <%= render partial: "partials/to_dashboard" %>
 
 <section id="movie-attributes">
-  <%= @movie[:title] %><br>
-  <%= @movie[:vote_average] %><br>
-  <%= @movie[:runtime] %><br>
-  <%= @movie[:overview] %><br>
-  <% @movie[:genres].each do |genre| %>
-    <%= genre[:name] %><br>
+  <%= @movie.title %><br>
+  <%= @movie.vote_average %><br>
+  <%= @movie.runtime %><br>
+  <%= @movie.overview %><br>
+  <% @movie.genres.each do |genre| %>
+    <%= genre.name %><br>
   <% end %>
 </section><br><br>
 
