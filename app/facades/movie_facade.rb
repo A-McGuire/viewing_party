@@ -13,6 +13,10 @@ class MovieFacade
       json_to_object(movies)
     end
 
+    def id_search_results(params)
+      id_search = MovieService.movie(params)
+    end
+
     def json_to_object(data)
       data.map do |movie|
         Movie.new(movie)
