@@ -1,7 +1,17 @@
 class MovieService
   class << self
-    def movie(id)
-      response = conn.get("3/movie/#{id}")
+    def movie(movie_id)
+      response = conn.get("3/movie/#{movie_id}")
+      parse_data(response)
+    end
+
+    def movie_reviews(movie_id)
+      response = conn.get("3/movie/#{movie_id}/reviews")
+      parse_data(response)
+    end
+
+    def movie_cast(movie_id)
+      response = conn.get("3/movie/#{movie_id}/credits")
       parse_data(response)
     end
 

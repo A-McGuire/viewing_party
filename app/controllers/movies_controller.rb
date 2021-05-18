@@ -7,5 +7,9 @@ class MoviesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @reviews = MovieService.movie_reviews(params[:id])
+    @movie = MovieService.movie(params[:id])
+    @cast = MovieService.movie_cast(params[:id])
+  end
 end
