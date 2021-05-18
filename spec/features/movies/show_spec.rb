@@ -8,30 +8,37 @@ RSpec.describe "Movie show page" do
   it "shows a movie's details", :vcr do 
     visit discover_index_path
     click_button("Find Top Rated Movies")
-    click_link("City of God")
-    expect(current_path).to eq(movie_path(598))
-  end
+    click_link("Fight Club")
+    overview = "A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion."
+    expect(current_path).to eq(movie_path(550))
 
+    within("#movie-attributes") do
+      expect(page).to have_content("Fight Club")
+      expect(page).to have_content(8.4)
+      expect(page).to have_content(139)
+      expect(page).to have_content("Drama")
+      expect(page).to have_content(overview)
+    end
 
-    #from get details query using movie id (/movie/movie_id)
-      # expect(page).to have_content(movie.title)
-      # expect(page).to have_content(movie.vote_average)
-      # expect(page).to have_content(movie.runtime)
-      # expect(page).to have_content(movie.genres[:name])
-      # expect(page).to have_content(movie.overview)
+    within("#movie-cast") do
+      expect(page).to have_content("Edward Norton")
+      expect(page).to have_content("The Narrator")
+      expect(page).to have_content("Brad Pitt")
+      expect(page).to have_content("Tyler Durden")
+    end
+
+    within("#movie-reviews") do
+      expect(page).to have_content("5 Reviews")
       
+      within("#review-Goddard") do
+        expect(page).to have_content("Goddard")
+        expect(page).to have_content("Pretty awesome movie. It shows what one crazy person can convince other crazy people to do. Everyone needs something to believe in. I recommend Jesus Christ, but they want Tyler Durden.")
+      end
 
-    #from get credits query (/movie/movie_id/credits)
-      # expect(page).to have_content(movie.cast.name)
-       # expect(page).to have_content(movie.cast.characters)-- limit to 10
-
-    #from get reviews query (/movie/movie_id/reviews)
-      # expect(page).to have_content(movie.total_results)
-      # expect(page).to have_content(movie.results.author)
-      # expect(page).to have_content(movie.reviews.content)
-
-    
+      within("#review-rsanek") do
+        expect(page).to have_content("rsanek")
+        expect(page).to have_content("I was mostly neutral on this movie until the last third, when things turned psychologically thrilling and gave me American Psycho vibes. The \"His name was Robert Paulson\" scene specifically was where the film turned from 3 starts to 4.5 stars. Would recommend and I intend to return to this in some time as I feel it has higher rewatchability than many films of this style.")
+      end
+    end
   end
-
-  
 end

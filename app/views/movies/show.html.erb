@@ -1,2 +1,28 @@
 <h1> Movie Show Page </h1>
 <%= render partial: "partials/to_dashboard" %>
+
+<section id="movie-attributes">
+  <%= @movie[:title] %><br>
+  <%= @movie[:vote_average] %><br>
+  <%= @movie[:runtime] %><br>
+  <%= @movie[:overview] %><br>
+  <% @movie[:genres].each do |genre| %>
+    <%= genre[:name] %><br>
+  <% end %>
+</section><br><br>
+
+<section id="movie-cast">
+  <% @cast[:cast].first(10).each do |member| %>
+  <%= member[:name] %> as <%= member[:character] %><br>
+  <% end %>
+</section><br>
+
+<section id="movie-reviews">
+  <%= @reviews[:total_results] %> Reviews<br>
+  <% @reviews[:results].each do |review| %>
+    <section id="review-<%= review[:author] %>">
+      <%= review[:author] %><br>
+      <%= review[:content] %><br><br>
+    </section>
+  <% end %>
+</section>
