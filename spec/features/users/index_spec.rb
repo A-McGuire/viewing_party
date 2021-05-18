@@ -30,6 +30,40 @@ RSpec.describe 'User Dashboard' do \
     expect(current_path).to eq(discover_index_path)
   end
 
+  describe 'log out', :logged_out do
+
+    it 'can log out and after log out user can not access restricted pages' do
+      visit root_path
+
+      click_button "New to Viewing Party? Register Here"
+
+      expect(current_path).to eq(root_path)
+
+      within(".register-form") do
+        fill_in :email, with: "123@test.com"
+        fill_in :password, with: "password123"
+        fill_in :password_confirmation, with: "password123"
+        click_button "Register"
+      end
+
+      expect(current_path).to eq(dashboard_path)
+
+      expect(page).to have_link("Log Out")
+      click_link "Log Out"
+
+      expect(current_path).to eq(root_path)
+
+      visit dashboard_path
+      expect(current_path).to eq(root_path)
+
+      visit movies_path
+      expect(current_path).to eq(root_path)
+
+      visit discover_index_path
+      expect(current_path).to eq(root_path)
+    end
+  end
+
   describe 'friends section' do
 
   end
