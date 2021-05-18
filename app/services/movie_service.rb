@@ -27,7 +27,7 @@ class MovieService
         req.params['query'] = movie_title
       end
       parse_data(response)
-    end   
+    end
 
     private
 
