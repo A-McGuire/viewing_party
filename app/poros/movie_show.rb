@@ -12,6 +12,8 @@ class MovieShow
     @vote_average = data[:vote_average]
     @runtime = data[:runtime]
     @overview = data[:overview]
-    @genres = data[:genres]
+    @genres = data[:genres].map do |genre|
+        genre[:name]
+    end
   end
 end
