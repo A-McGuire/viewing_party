@@ -50,7 +50,7 @@ RSpec.describe 'User Dashboard' do \
 
       expect(page).to have_link("Log Out")
       click_link "Log Out"
-      
+
       expect(current_path).to eq(root_path)
 
       visit dashboard_path
@@ -59,7 +59,7 @@ RSpec.describe 'User Dashboard' do \
       visit movies_path
       expect(current_path).to eq(root_path)
 
-      visit discover_path
+      visit discover_index_path
       expect(current_path).to eq(root_path)
     end
   end

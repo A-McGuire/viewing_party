@@ -8,7 +8,7 @@ RSpec.describe "Discover page" do
 
   it "redirects unauthenticated users to root", :logged_out do
 
-    visit discover_path
+    visit discover_index_path
 
     expect(current_path).to eq(root_path)
     expect(page).to have_content("Please login")
@@ -16,7 +16,7 @@ RSpec.describe "Discover page" do
 
   it 'has a link to top 40 movies (/movies)', :vcr do
 
-    visit discover_path
+    visit discover_index_path
 
     expect(page).to have_button('Find Top Rated Movies')
     click_button 'Find Top Rated Movies'
@@ -25,7 +25,7 @@ RSpec.describe "Discover page" do
 
   it 'has a form to search movies by title', :vcr do
 
-    visit discover_path
+    visit discover_index_path
 
     fill_in :movie_title, with: "Fight Club"
     expect(page).to have_button('Find Movies')
@@ -37,7 +37,7 @@ RSpec.describe "Discover page" do
 
   it "has a link back to dashboard" do 
 
-    visit discover_path
+    visit discover_index_path
 
     expect(page).to have_link("Dashboard")
     click_link('Dashboard')
