@@ -21,6 +21,10 @@ class MovieFacade
       reviews_search = MovieService.movie_reviews(movie_id)
     end
 
+    def cast_search_results(movie_id)
+      cast_search = MovieService.movie_cast(movie_id)
+    end
+
     def json_to_object(data)
       data.map do |movie|
         Movie.new(movie)

@@ -9,8 +9,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = MovieFacade.id_search_results(params[:id])
-    # @reviews = MovieService.movie_reviews(params[:id])
     @reviews = MovieFacade.reviews_search_results(params[:id])
-    @cast = MovieService.movie_cast(params[:id])
+    @cast = MovieFacade.cast_search_results(params[:id])
   end
 end
