@@ -25,7 +25,6 @@ RSpec.describe 'Movie Facade', :vcr do
       
       json_movie_id = data_hash[:results].first[:id]
       json_movie_title = data_hash[:results].first[:title]
-      # binding.pry
 
       movie_object = MovieFacade.json_to_index_object(data_hash[:results])
 
