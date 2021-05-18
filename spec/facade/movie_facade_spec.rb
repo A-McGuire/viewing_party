@@ -18,7 +18,7 @@ RSpec.describe 'Movie Facade', :vcr do
     end
   end
 
-  describe 'json_to_object' do
+  describe 'json_to_index_object' do
     it 'converts json data to ruby objects' do
       movies_json = File.read('spec/fixtures/movies.json')
       data_hash = JSON.parse(movies_json, symbolize_names: true)
@@ -27,7 +27,7 @@ RSpec.describe 'Movie Facade', :vcr do
       json_movie_title = data_hash[:results].first[:title]
       # binding.pry
 
-      movie_object = MovieFacade.json_to_object(data_hash[:results])
+      movie_object = MovieFacade.json_to_index_object(data_hash[:results])
 
       object_movie_id = movie_object.first.id
       object_movie_title = movie_object.first.title
