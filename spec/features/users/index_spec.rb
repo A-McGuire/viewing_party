@@ -92,6 +92,21 @@ RSpec.describe 'User Dashboard' do \
         expect(page).to have_content("You currently have no friends")
       end
     end
+
+    describe "sad path" do
+      it "shows an error message if the email does not exist in the database" do
+        visit dashboard_path
+        within("#friends-section") do
+          within("#add-friend-form") do
+            fill_in :email, with: "friend@email.com"
+            click_button "Add Friend"
+
+            expect(current_path).to eq(dashboard_path)
+          end
+        end
+        expect(page).to have_content('User not found')
+      end
+    end
   end
   
   describe 'viewing party section' do
@@ -102,5 +117,4 @@ RSpec.describe 'User Dashboard' do \
       end
     end
   end
-
 end
