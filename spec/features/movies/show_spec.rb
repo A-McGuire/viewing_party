@@ -50,6 +50,6 @@ RSpec.describe "Movie show page", :vcr  do
 
     expect(page).to have_link("Create Viewing Party")
     click_link("Create Viewing Party")
-    expect(current_path).to eq("/viewing_party/new")
+    expect(current_path).to eq("/viewing_parties/new")
   end
 end
