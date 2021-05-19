@@ -4,12 +4,12 @@
 </section>
 
 <section>
-  <%= form_with url: viewing_parties_path, method: :post, local: true do |f| %>
+  <%= form_with url: parties_path, method: :post, local: true do |f| %>
   <%= f.label :duration %>
   <%= f.number_field :duration, value: @movie.runtime %>
 
   <%= f.label :when %>
-  <%= f.date_field :when %>
+  <%= f.date_field :date %>
 
   <%= f.label :start_time %>
   <%= f.time_field :start_time %>

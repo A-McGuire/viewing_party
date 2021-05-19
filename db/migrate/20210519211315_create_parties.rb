@@ -1,10 +1,10 @@
-class CreateViewingParty < ActiveRecord::Migration[5.2]
+class CreateParties < ActiveRecord::Migration[5.2]
   def change
-    create_table :viewing_parties do |t|
+    create_table :parties do |t|
       t.integer :host_id
+      t.integer :duration
       t.date :date
       t.time :start_time
-      t.integer :duration
       t.integer :movie_id
 
       t.timestamps
