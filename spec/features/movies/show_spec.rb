@@ -1,11 +1,11 @@
 require 'rails_helper'
-RSpec.describe "Movie show page" do
+RSpec.describe "Movie show page", :vcr  do
   before :each do |test|
     @user = User.create!(email: "123@email.com", password: "1111")
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user) unless test.metadata[:logged_out]
   end
 
-  it "shows a movie's details", :vcr do 
+  it "shows a movie's details"do 
     visit discover_index_path
     click_button("Find Top Rated Movies")
     click_link("Fight Club")
@@ -40,5 +40,16 @@ RSpec.describe "Movie show page" do
         expect(page).to have_content("I was mostly neutral on this movie until the last third, when things turned psychologically thrilling and gave me American Psycho vibes. The \"His name was Robert Paulson\" scene specifically was where the film turned from 3 starts to 4.5 stars. Would recommend and I intend to return to this in some time as I feel it has higher rewatchability than many films of this style.")
       end
     end
+  end
+
+  it "has a link to create a viewing party" do
+    visit discover_index_path
+    click_button("Find Top Rated Movies")
+    click_link("Fight Club")
+    expect(current_path).to eq(movie_path(550))
+
+    expect(page).to have_link("Create Viewing Party")
+    click_link("Create Viewing Party")
+    expect(current_path).to eq("/viewing_party/new")
   end
 end
