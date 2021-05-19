@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def index
     # binding.pry
+    @hosting = Party.where("host_id = ?", current_user.id) #TODO: Refactor to model
     return unless Friendship.find_by(user_id: current_user.id).present?
 
     friendships = current_user.friendships

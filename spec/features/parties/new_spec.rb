@@ -19,16 +19,22 @@ RSpec.describe 'New viewing party', :vcr do
       expect(current_path).to eq(new_party_path)
       expect(page).to have_content("Fight Club")
       expect(find_field(:duration).value).to eq('139')
-      fill_in :date, with: '5/19/21'
-      fill_in :start_time, with: '1:00'
+      fill_in :date, with: Time.new(2021, 06, 02)
+      fill_in :start_time, with: Time.now
       expect(page).to have_content("Friend@email.com")
       check :invite
       click_button("Create Party")
-      # viewing_party = ViewingParty.last
+      party = Party.last
+      expect(party.duration).to eq(139)
+      expect(party.date.to_s).to eq("2021-06-02")
+      expect(party.start_time).to eq("1:00pm")
       expect(current_path).to eq(dashboard_path)
       expect(page).to have_content("Viewing Party Created")
+
       within '#party-section' do
-        expect(page).to have_content("Fight Club")
+        within '#hosting-section' do
+          expect(page).to have_content("Fight Club")
+        end
       end
 
     end
