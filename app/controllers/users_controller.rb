@@ -17,11 +17,11 @@ class UsersController < ApplicationController
   end
 
   def index
-    if Friendship.find_by(user_id: current_user.id).present?
-      friendships = current_user.friendships
-      @friends = friendships.map do |friendship|
-        User.find(friendship.friend_id)
-      end
+    return unless Friendship.find_by(user_id: current_user.id).present?
+
+    friendships = current_user.friendships
+    @friends = friendships.map do |friendship|
+      User.find(friendship.friend_id)
     end
   end
 
