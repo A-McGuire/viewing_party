@@ -1,1 +1,19 @@
 <h1> Viewing Party </h1>
+<section>
+  <%=  @movie.title %>
+</section>
+
+<section>
+  <%= form_with url: viewing_parties_path, method: :post, local: true do |f| %>
+  <%= f.label :duration %>
+  <%= f.number_field :duration, value: @movie.runtime %>
+
+  <%= f.label :when %>
+  <%= f.date_field :when %>
+
+  <%= f.label :start_time %>
+  <%= f.time_field :start_time %>
+
+  <%= f.submit "Create Party" %>
+  <% end %>
+</section>

@@ -19,5 +19,5 @@ Rails.application.routes.draw do
 
   resources :friendships,  only: [:create, :destroy]
 
-  resources :viewing_parties, only: [:new]
+  resources :viewing_parties, only: [:new, :create]
 end
