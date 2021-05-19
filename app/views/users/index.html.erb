@@ -1,22 +1,35 @@
-<h1>Welcome, <%= current_user.email %><h1>
+<h1>Welcome, <%= current_user.email %></h1>
 
 <section class='discover-button'>
   <%= button_to 'Discover Movies', '/discover', method: :get %>
 </section>
 
-<section class='log-out-button'>
-  <%= link_to 'Log Out', '/logout' %>
-</section>
-
 <section id='friends-section'>
   <h3>Friends</h3>
-  <section id='add-friend-form'>
-    
-  </section>
 
+  <% if @friends.present? %>
+  <% @friends.each do |friend| %>
+  <%= friend.email %>
+  <% end %>
+  <% else %>
+  You currently have no friends
+  <% end %>
+
+  <section id='add-friend-form'>
+    <section>
+      <%= form_with url: friendships_path, method: :create, local: true do |f| %>
+      <%= f.label :email %>
+      <%= f.text_field :email, placeholder: "Search by email" %>
+      <%= f.submit "Add Friend" %>
+      <% end %>
+    </section>
+  </section>
 </section>
 
 <section id='party-section'>
   <h3>Viewing Parties</h3>
+</section>
 
+<section class='log-out-button'>
+  <%= link_to 'Log Out', '/logout' %>
 </section>

@@ -72,15 +72,24 @@ RSpec.describe 'User Dashboard' do \
       end
     end
 
-    skip 'has a form to add a friend' do
+    it 'has a form to add a friend' do
+      friend = User.create!(email: "friend@email.com", password: "1111")
       visit dashboard_path
       within("#friends-section") do
         within("#add-friend-form") do
-          fill_in :email, with: "friend@friendship.com"
+          fill_in :email, with: "friend@email.com"
           click_button "Add Friend"
 
           expect(current_path).to eq(dashboard_path)
         end
+        expect(page).to have_content('friend@email.com')
+      end
+    end
+
+    it 'if user has no friends, no friends are displayed' do
+      visit dashboard_path
+      within("#friends-section") do
+        expect(page).to have_content("You currently have no friends")
       end
     end
   end
