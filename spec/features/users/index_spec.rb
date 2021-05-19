@@ -71,6 +71,18 @@ RSpec.describe 'User Dashboard' do \
         expect(page).to have_content("Friends")
       end
     end
+
+    skip 'has a form to add a friend' do
+      visit dashboard_path
+      within("#friends-section") do
+        within("#add-friend-form") do
+          fill_in :email, with: "friend@friendship.com"
+          click_button "Add Friend"
+
+          expect(current_path).to eq(dashboard_path)
+        end
+      end
+    end
   end
   
   describe 'viewing party section' do
