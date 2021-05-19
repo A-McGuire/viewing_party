@@ -15,35 +15,23 @@ class MovieFacade
 
     def id_search_results(movie_id)
       id_search = MovieService.movie(movie_id)
-      json_to_show_object(id_search)
+      MovieShow.new(id_search)
     end
 
     def reviews_search_results(movie_id)
       reviews_search = MovieService.movie_reviews(movie_id)
-      json_to_reviews_object(reviews_search)
+      MovieReviews.new(reviews_search)
     end
 
     def cast_search_results(movie_id)
       cast_search = MovieService.movie_cast(movie_id)
-      json_to_cast_object(cast_search)
+      MovieCast.new(cast_search)
     end
 
     def json_to_index_object(data)
       data.map do |movie|
         MovieIndex.new(movie)
       end
-    end
-
-    def json_to_show_object(data)
-      MovieShow.new(data)
-    end
-
-    def json_to_reviews_object(data)
-      MovieReviews.new(data)
-    end
-
-    def json_to_cast_object(data)
-      MovieCast.new(data)
     end
   end
 end

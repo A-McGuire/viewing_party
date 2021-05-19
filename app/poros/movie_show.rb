@@ -13,7 +13,7 @@ class MovieShow
     @runtime = data[:runtime]
     @overview = data[:overview]
     @genres = data[:genres].map do |genre|
-        genre[:name]
+      genre[:name]
     end
   end
 end
