@@ -5,22 +5,24 @@
 
 <section>
   <%= form_with url: parties_path, method: :post, local: true do |f| %>
-  <%= f.label :duration %>
-  <%= f.number_field :duration, value: @movie.runtime %>
+    
+    <%= f.hidden_field :movie_id, value: @movie.id %>
 
-  <%= f.label :when %>
-  <%= f.date_field :date %>
+    <%= f.label :duration %>
+    <%= f.number_field :duration, value: @movie.runtime %>
 
-  <%= f.label :start_time %>
-  <%= f.time_field :start_time %>
+    <%= f.label :when %>
+    <%= f.date_field :date %>
 
-  
-  <% current_user.friendships.each do |friendship| %>
-  
-  <%= f.label User.find(friendship.friend_id).email %>
-  <%= f.check_box :invite %>
-  <% end %>
+    <%= f.label :start_time %>
+    <%= f.time_field :start_time %>
 
-  <%= f.submit "Create Party" %>
+    <% current_user.friendships.each do |friendship| %>
+    
+    <%= f.label User.find(friendship.friend_id).email %>
+      <%= f.check_box :invite %>
+    <% end %>
+
+    <%= f.submit "Create Party" %>
   <% end %>
 </section>

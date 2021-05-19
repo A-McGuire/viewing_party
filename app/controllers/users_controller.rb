@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    # binding.pry
     return unless Friendship.find_by(user_id: current_user.id).present?
 
     friendships = current_user.friendships
