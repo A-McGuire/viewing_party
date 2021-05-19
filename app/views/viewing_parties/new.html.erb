@@ -14,6 +14,13 @@
   <%= f.label :start_time %>
   <%= f.time_field :start_time %>
 
+  
+  <% current_user.friendships.each do |friendship| %>
+  
+  <%= f.label User.find(friendship.friend_id).email %>
+  <%= f.check_box :invite %>
+  <% end %>
+
   <%= f.submit "Create Party" %>
   <% end %>
 </section>
