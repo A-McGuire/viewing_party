@@ -65,11 +65,56 @@ RSpec.describe 'User Dashboard' do \
   end
 
   describe 'friends section' do
+    it "has a friends section" do
+      visit dashboard_path
+      within("#friends-section") do
+        expect(page).to have_content("Friends")
+      end
+    end
 
+    it 'has a form to add a friend' do
+      friend = User.create!(email: "friend@email.com", password: "1111")
+      visit dashboard_path
+      within("#friends-section") do
+        within("#add-friend-form") do
+          fill_in :email, with: "friend@email.com"
+          click_button "Add Friend"
+
+          expect(current_path).to eq(dashboard_path)
+        end
+        expect(page).to have_content('friend@email.com')
+      end
+    end
+
+    it 'if user has no friends, no friends are displayed' do
+      visit dashboard_path
+      within("#friends-section") do
+        expect(page).to have_content("You currently have no friends")
+      end
+    end
+
+    describe "sad path" do
+      it "shows an error message if the email does not exist in the database" do
+        visit dashboard_path
+        within("#friends-section") do
+          within("#add-friend-form") do
+            fill_in :email, with: "friend@email.com"
+            click_button "Add Friend"
+
+            expect(current_path).to eq(dashboard_path)
+          end
+        end
+        expect(page).to have_content('User not found')
+      end
+    end
   end
   
   describe 'viewing party section' do
-
+    it "has a viewing party section" do
+      visit dashboard_path
+      within("#party-section") do
+        expect(page).to have_content("Viewing Parties")
+      end
+    end
   end
-
 end

@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :movies, only: [:index, :show]
 
   resources :discover, only: [:index]
+
+  resources :friendships,  only: [:create, :destroy]
 end
