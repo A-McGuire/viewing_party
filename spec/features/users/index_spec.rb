@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User Dashboard' do \
+RSpec.describe 'User Dashboard' do 
   before :each do |test|
     @user = User.create!(email: "123@email.com", password: "1111")
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user) unless test.metadata[:logged_out]
