@@ -65,11 +65,21 @@ RSpec.describe 'User Dashboard' do \
   end
 
   describe 'friends section' do
-
+    it "has a friends section" do
+      visit dashboard_path
+      within("#friends-section") do
+        expect(page).to have_content("Friends")
+      end
+    end
   end
   
   describe 'viewing party section' do
-
+    it "has a viewing party section" do
+      visit dashboard_path
+      within("#party-section") do
+        expect(page).to have_content("Viewing Parties")
+      end
+    end
   end
 
 end
