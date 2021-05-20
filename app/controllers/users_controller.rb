@@ -11,14 +11,12 @@ class UsersController < ApplicationController
       redirect_to dashboard_path
     else
       redirect_to root_path
-      flash[:alert] = 'Invalid credentials' # TODO: make this case sensitive,
-      # email already exists, or passwords dont match
+      flash[:alert] = 'Invalid credentials'
     end
   end
 
   def index
-    # binding.pry
-    @hosting = Party.where("host_id = ?", current_user.id) #TODO: Refactor to model
+    @hosting = Party.where('host_id = ?', current_user.id)
     return unless Friendship.find_by(user_id: current_user.id).present?
 
     friendships = current_user.friendships
