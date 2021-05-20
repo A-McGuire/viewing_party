@@ -1,9 +1,10 @@
 # Viewing Party
 
-Backend 2012 Turing, module 3 project, created by Aidan McGuire & Wyatt Wicks
+This is the base repo for the [viewing party project](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
+
 ### About this Project
 
-Viewing Party is an app that allows users to find information about movies and create viewing parties with their friends for whatever movie they select. Viewing Party is a Turing module 3 paired project that explores consuming APIS from themoviedb.org as well as creating database relationships between multiple users. The project started with a basic framework for an app, but all databases as well as associated files and tests were created by Aidan McGuire and Wyatt Wicks in May of 2021.
+Viewing party is an application in which users can explore movie options and create a viewing party event for the user and friend's.
 
 ## Local Setup
 

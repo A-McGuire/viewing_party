@@ -15,7 +15,7 @@
   <%= f.date_field :date, value: Date.today %>
 
   <%= f.label :start_time %>
-  <%= f.time_field :start_time, value: Time.now %>
+  <%= f.time_field :start_time, value: Time.now) %>
 
   <% current_user.friendships.each do |friendship| %>
 
