@@ -1,5 +1,8 @@
 <h1> Movie Show Page </h1>
 <%= render partial: "partials/to_dashboard" %>
+<section class='create-viewing-party-link'>
+  <%= link_to 'Create Viewing Party', new_party_path(movie_id: @movie.id), method: :get %>
+</section>
 
 <section id="movie-attributes">
   Title: <%= @movie.title %><br>

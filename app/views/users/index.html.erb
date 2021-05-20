@@ -28,6 +28,11 @@
 
 <section id='party-section'>
   <h3>Viewing Parties</h3>
+  <section id='hosting-section'>
+    <% @hosting.each do |party| %>
+      <%= party.id %>
+    <% end %>
+  </section>
 </section>
 
 <section class='log-out-button'>

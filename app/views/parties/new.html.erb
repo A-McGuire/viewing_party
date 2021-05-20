@@ -1,0 +1,29 @@
+<h1> Viewing Party </h1>
+<section>
+  <%=  @movie.title %>
+</section>
+
+<section>
+  <%= form_with url: parties_path, method: :post, local: true do |f| %>
+
+  <%= f.hidden_field :movie_id, value: @movie.id %>
+
+  <%= f.label :duration %>
+  <%= f.number_field :duration, value: @movie.runtime %>
+
+  <%= f.label :date %>
+  <%= f.date_field :date, value: Date.today %>
+
+  <%= f.label :start_time %>
+  <%= f.time_field :start_time, value: Time.now %>
+
+  <% current_user.friendships.each do |friendship| %>
+
+  <%= f.label User.find(friendship.friend_id).email %>
+  <%= f.check_box :invite %>
+  <% end %>
+
+  <%= f.submit "Create Party" %>
+  <% end %>
+</section>
+

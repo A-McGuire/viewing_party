@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   resources :discover, only: [:index]
 
   resources :friendships,  only: [:create, :destroy]
+
+  resources :parties, only: [:new, :create]
 end

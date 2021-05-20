@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_19_012455) do
+ActiveRecord::Schema.define(version: 2021_05_19_220013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,25 @@ ActiveRecord::Schema.define(version: 2021_05_19_012455) do
   create_table "friendships", force: :cascade do |t|
     t.integer "user_id"
     t.integer "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.bigint "party_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["party_id"], name: "index_invitations_on_party_id"
+    t.index ["user_id"], name: "index_invitations_on_user_id"
+  end
+
+  create_table "parties", force: :cascade do |t|
+    t.integer "host_id"
+    t.integer "duration"
+    t.date "date"
+    t.time "start_time"
+    t.integer "movie_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,4 +49,6 @@ ActiveRecord::Schema.define(version: 2021_05_19_012455) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "invitations", "parties"
+  add_foreign_key "invitations", "users"
 end
