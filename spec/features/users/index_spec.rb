@@ -111,7 +111,9 @@ RSpec.describe 'User Dashboard' do
   
   describe 'viewing party section' do
     it "has a viewing party section" do
+      party = Party.create!(host_id: @user.id, movie_id: 550, duration: 139, date: "06/02/2021", start_time: 3:00)
       visit dashboard_path
+      
       within("#party-section") do
         expect(page).to have_content("Viewing Parties")
       end
