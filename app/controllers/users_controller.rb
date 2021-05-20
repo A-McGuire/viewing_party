@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    
     @hosting = Party.where('host_id = ?', current_user.id)
     return unless Friendship.find_by(user_id: current_user.id).present?
 
